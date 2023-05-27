@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movieapp_viva/models/moviemodel.dart';
 import 'package:movieapp_viva/utills/helpers/apihelper.dart';
@@ -14,16 +15,20 @@ class _HomepageState extends State<Homepage> {
 
   @override
   void initState() {
-    getAllMovie = APIHelper.apiHelper.fetchallmovie(search: "Baaghi");
+    getAllMovie = APIHelper.apiHelper.fetchallmovie(
+      search: "Baaghi",
+    );
     super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text(
-          "Movie App",
+          "Movie details App",
         ),
       ),
       body: Container(
@@ -42,6 +47,7 @@ class _HomepageState extends State<Homepage> {
                   },
                   decoration: const InputDecoration(
                     hintText: "Search here..",
+                    suffixIcon: Icon(Icons.search,),
                     border: const OutlineInputBorder(),
                   ),
                 ),
@@ -57,6 +63,7 @@ class _HomepageState extends State<Homepage> {
                       );
                     } else if (snapshot.hasData) {
                       MovieModel? data = snapshot.data;
+
                       // MovieModel? data = snapshot.data;
                       print(data);
                       return (data == null)
@@ -69,44 +76,88 @@ class _HomepageState extends State<Homepage> {
                                   const SizedBox(
                                     height: 20,
                                   ),
-                                  // Container(
-                                  //   height: 600,
-                                  //   width: double.infinity,
-                                  //   decoration: BoxDecoration(
-                                  //     color: Colors.black12,
-                                  //     borderRadius: BorderRadius.circular(
-                                  //       20,
-                                  //     ),
-                                  //   ),
-                                  //   child: Column(
-                                  //     children: [
-                                  //       SizedBox(
-                                  //         height: 20,
-                                  //       ),
-                                  //
-                                  //     ],
-                                  //   ),
-                                  // ),
-                                  Card(
-                                    child: ListTile(
-                                      onTap: () {
-                                        Navigator.of(context)
-                                            .pushNamed('Detailspage',arguments: data);
-                                      },
-                                      title: Text(
-                                        "${data.title}",
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      subtitle: Text("${data.director}",
-                                          style: TextStyle(fontSize: 16)),
-                                      trailing: Text(
-                                        "${data.year}",
-                                        style: TextStyle(fontSize: 18),
+
+                                  Container(
+                                    height: 400,
+                                    width: 400,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: NetworkImage(data.poster),
                                       ),
                                     ),
-                                  )
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    "${data.title}",
+                                    style: TextStyle(
+                                        fontSize: 40,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Text(
+                                        '${data.imdbvotes}',
+                                        style: TextStyle(
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Text(
+                                        "${data.metascore}",
+                                        style: const TextStyle(
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Text(
+                                        "${data.imdbrating}",
+                                        style: const TextStyle(
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                  const Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Text(
+                                        "imdbvotes",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                      Text(
+                                        "metascore",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                      Text(
+                                        "imdbrating",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pushNamed('Detailspage',arguments: data);
+                                    },
+                                    child: const Text(
+                                      "View",
+                                      style: TextStyle(fontSize: 20),
+                                    ),
+                                  ),
                                 ],
                               ),
                             );

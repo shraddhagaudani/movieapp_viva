@@ -15,6 +15,10 @@ class MovieModel {
   String poster;
   String movietype;
   String response;
+  String metascore;
+  String imdbrating;
+  String imdbvotes;
+  String plot;
 
   MovieModel({
     required this.title,
@@ -31,6 +35,10 @@ class MovieModel {
     required this.poster,
     required this.movietype,
     required this.response,
+    required this.metascore,
+    required this.imdbrating,
+    required this.imdbvotes,
+    required this.plot,
   });
 
   factory MovieModel.fromMap({required Map data}){
@@ -47,6 +55,11 @@ class MovieModel {
         country: data['Country'],
         poster: data['Poster'],
         movietype: data['Type'],
-        response: data['Response']);
+        response: data['Response'],
+        metascore: data['Metascore'],
+      imdbrating: data['imdbRating'],
+      imdbvotes: data['imdbVotes'],
+      plot: data['Plot'],
+    );
   }
 }
