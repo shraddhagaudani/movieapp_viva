@@ -8,13 +8,16 @@ A new Flutter project.
  
 <img align="left" src="https://github.com/shraddhagaudani/movieapp_viva/assets/122030732/20e4c244-79e7-40f9-879f-f2fea924f053" width ="220px">
 <img align="left" src="https://github.com/shraddhagaudani/movieapp_viva/assets/122030732/7bd6e1d3-bbee-4e7c-b389-1fe3e5f13d57" width ="220px">
-<img src="" width ="220px">
+<img align="left" src="https://github.com/shraddhagaudani/movieapp_viva/assets/122030732/1f99511d-b3a2-46e7-9226-4c0a7e60cb92" width ="220px">
 
-<img align="left" src="" width ="220px">
-<img align="left" src="" width ="220px">
-<img src="" width ="220px">
+<img align="left" src="https://github.com/shraddhagaudani/movieapp_viva/assets/122030732/ade79366-82d3-4e88-86b6-c8a7a1d451b1" width ="220px">
+<img align="left" src="https://github.com/shraddhagaudani/movieapp_viva/assets/122030732/24796458-2ab6-406b-8875-2fe795768c7f" width ="220px">
+<img align="left" src="https://github.com/shraddhagaudani/movieapp_viva/assets/122030732/5a33ced3-1a26-492a-91ae-7a839e9ad2a3" width ="220px">
+
+<img align="left" src="https://github.com/shraddhagaudani/movieapp_viva/assets/122030732/e6269dcb-89f2-42c4-838f-ab05b724a946" width ="220px">
 
 ## Getting Started
+
 
 
 
